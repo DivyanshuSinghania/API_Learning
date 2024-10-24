@@ -11,6 +11,15 @@ def read_root():
                                 # hence we dont need to write commands 
                                 # or any thing for it niether we need to restart the servers
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/posts")
+def get_posts():
+    return {"data": "This is your posts"}
+
+@app.get("/")
+def get_posts():
+    return {"Imposter": "Sus"}  # This does not run as api hit this path in above function, 
+                                # hence fastAPI stopped and return that function
+
+@app.post("/createposts")
+def create_posts():
+    return{"message": "sucessfully created Posts"}
